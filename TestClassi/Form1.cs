@@ -16,11 +16,12 @@ namespace TestClassi
         {
             InitializeComponent();
         }
-           
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             Monster strongbonna = new Monster("Strongbonna", 100, 20);
             Monster charmender = new Monster("Charmender", 60, 20, 10);
+            strongbonna.describe(t);
 
             strongbonna.attack(charmender);
             charmender.attack(strongbonna);
@@ -28,6 +29,9 @@ namespace TestClassi
             charmender.heal(strongbonna);
             strongbonna.attack(charmender);
             strongbonna.attack(charmender);
+
         }
+
+      
     }
 }
