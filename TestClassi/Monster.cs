@@ -5,19 +5,64 @@ namespace TestClassi
 {
     class Monster
     {
-        public string name;
-        public int maxHp;
-        public int curHp;
-        public int damage;
-        public int healFactor;
-        
-        public Monster(string name, int maxHp, int damage, int healFactor = 0)
+        public string _name;
+        private string name
         {
-            this.name = name;
-            this.maxHp = maxHp;
+           get
+            {
+                return _name;
+            }
+        }
+        public int _maxHp;
+        private int maxHp
+        {
+            get
+            {
+                return _maxHp;
+            }
+        }
+
+        public int _curHp;
+        private int curHp
+        {
+            set
+            {
+                if (value < 0) value = 0;
+                else if (value > _maxHp) value = _maxHp;
+                _curHp = value;
+            }
+
+            get
+            {
+                return _curHp;
+            }
+        }
+
+
+        public int _damage;
+        private int damage
+        {
+            get
+            {
+                return _damage;
+            }
+        }
+        public int _healFactor;
+        private int healFactor
+        {
+            get
+            {
+                return _healFactor;
+            }
+}
+
+public Monster(string name, int maxHp, int damage, int healFactor = 0)
+        {
+            _name = name;
+            _maxHp = maxHp;
             curHp = maxHp;
-            this.damage = damage;
-            this.healFactor = healFactor;
+            _damage = damage;
+            _healFactor = healFactor;
             describe();
         }
 
