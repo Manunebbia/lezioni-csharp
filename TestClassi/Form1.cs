@@ -12,6 +12,8 @@ namespace TestClassi
 {
     public partial class Form1 : Form
     {
+        private List<Monster> monsters = new List<Monster>();
+
         public Form1()
         {
             InitializeComponent();
@@ -19,19 +21,14 @@ namespace TestClassi
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            Monster strongbonna = new Monster("Strongbonna", 100, 20);
-            Monster charmender = new Monster("Charmender", 60, 20, 10);
-            strongbonna.describe(t);
-
-            strongbonna.attack(charmender);
-            charmender.attack(strongbonna);
-            strongbonna.heal();
-            charmender.heal(strongbonna);
-            strongbonna.attack(charmender);
-            strongbonna.attack(charmender);
-
+            addMonster(new Monster("tizio", 200, 100));
+            Console.WriteLine(monsters[0].describe());
+        }
+        private Monster addMonster(Monster m)
+        {
+            monsters.Add(m);
+            return m;
         }
 
-      
     }
 }

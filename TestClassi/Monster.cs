@@ -5,25 +5,17 @@ namespace TestClassi
 {
     class Monster
     {
-        public string _name;
-        private string name
-        {
-           get
-            {
-                return _name;
-            }
-        }
-        public int _maxHp;
-        private int maxHp
-        {
-            get
-            {
-                return _maxHp;
-            }
-        }
+        private string _name;
+        public string name { get { return _name; } }
 
-        public int _curHp;
-        private int curHp
+        private int _maxHp;
+        public int maxHp
+        { get { return _maxHp; } }
+
+        public bool alive { get { return curHp > 0; } }
+
+        private int _curHp;
+        public int curHp
         {
             set
             {
@@ -32,37 +24,46 @@ namespace TestClassi
                 _curHp = value;
             }
 
-            get
-            {
-                return _curHp;
-            }
+            get { return _curHp; }
         }
 
+        private int _damage;
+        public int damage { get { return _damage; } }
 
-        public int _damage;
-        private int damage
-        {
-            get
-            {
-                return _damage;
-            }
-        }
-        public int _healFactor;
-        private int healFactor
+        private int _healFactor;
+        public int healFactor
         {
             get
             {
                 return _healFactor;
             }
-}
+            set
+            {
+                _healFactor = value;
+            }
+        }
+
+        public string status
+        {
+            get
+            {
+                return curHp + "/" + maxHp + " HP";
+            }
+        }
 
 public Monster(string name, int maxHp, int damage, int healFactor = 0)
         {
             _name = name;
+
+            if (maxHp < 1) maxHp = 1;
             _maxHp = maxHp;
+
             curHp = maxHp;
+
+            if (damage < 0) damage = 0;
             _damage = damage;
-            _healFactor = healFactor;
+
+            this.healFactor = healFactor;
             describe();
         }
 
@@ -116,15 +117,15 @@ public Monster(string name, int maxHp, int damage, int healFactor = 0)
             heal(this);
         }
 
-        public void attack(Monster target)
+        public virtual void attack(Monster target)
         {
-            if (curHp <= 0)
+            if (!alive)
             {
                 Console.WriteLine("Non puoi attaccare nessuno da morto");
                 return;
             }
 
-            if (target.curHp <= 0)
+            if (!target.alive)
             {
                 Console.WriteLine(target.name + " è già esausto, non infierire.");
                 return;
@@ -134,7 +135,7 @@ public Monster(string name, int maxHp, int damage, int healFactor = 0)
             Console.WriteLine(name + " fa " + damage + " danni a " + target.name);
             target.curHp -= damage;
             
-            if (target.curHp <= 0 )
+            if (!target.alive)
             {
                 target.curHp = 0;
                 Console.WriteLine(target.name + " è esausto.");
