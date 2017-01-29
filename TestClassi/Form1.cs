@@ -17,6 +17,7 @@ namespace TestClassi
         public Form1()
         {
             InitializeComponent();
+            Deserializer.deserialize();
         }
         
         private void Form1_Load(object sender, EventArgs e)
