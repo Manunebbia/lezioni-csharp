@@ -9,10 +9,34 @@ namespace TestClassi
 {
     static class Deserializer
     {
-        public static void deserialize()
+        #if DEBUG
+            private static string path = @"..\..\monsters.csv";
+        #else
+            private static string path = @".\monsters.csv";
+        #endif
+
+        public static List<Monster> deserializeMonsters()
         {
-            string[] data = File.ReadAllLines(@"..\..\monsters.csv");
-            Console.WriteLine(data[1]);
+            List<Monster> monsters = new List<Monster>();
+
+            string[] data = File.ReadAllLines(path);
+            int l = data.Length;
+            for (int i = 1; i < l; i++)
+            {
+                string[] splittedData = data[i].Split(',');
+                switch (splittedData[0].ToUpper())
+                {
+                    case "MONSTER":
+                        monsters.Add(new Monster(splittedData[1], int.Parse(splittedData[2]), int.Parse(splittedData[3]), int.Parse(splittedData[4])));
+                        break;
+                    case "FIRE":
+                        monsters.Add(new Fire_Monster(splittedData[1], int.Parse(splittedData[2]), int.Parse(splittedData[3]), int.Parse(splittedData[4])));
+                        break;
+                }
+                Console.WriteLine(splittedData[0]);
+            }
+
+            return monsters;
         }
     }
 }

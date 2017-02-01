@@ -17,13 +17,14 @@ namespace TestClassi
         public Form1()
         {
             InitializeComponent();
-            Deserializer.deserialize();
+            monsters = Deserializer.deserializeMonsters();
+            Console.WriteLine(monsters[0].describe());
         }
         
         private void Form1_Load(object sender, EventArgs e)
         {
             addMonster(new Monster("tizio", 200, 100));
-            Console.WriteLine(monsters[0].describe());
+            //Console.WriteLine(monsters[0].describe());
         }
         private Monster addMonster(Monster m)
         {
