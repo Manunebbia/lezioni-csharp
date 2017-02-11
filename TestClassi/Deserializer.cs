@@ -33,7 +33,6 @@ namespace TestClassi
                         monsters.Add(new Fire_Monster(splittedData[1], int.Parse(splittedData[2]), int.Parse(splittedData[3]), int.Parse(splittedData[4])));
                         break;
                 }
-                Console.WriteLine(splittedData[0]);
             }
 
             return monsters;
