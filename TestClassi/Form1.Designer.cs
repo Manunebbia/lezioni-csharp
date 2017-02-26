@@ -28,51 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.t = new System.Windows.Forms.TextBox();
+            this.enemyImg = new System.Windows.Forms.PictureBox();
+            this.prevButt = new System.Windows.Forms.Button();
+            this.nextButt = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyImg)).BeginInit();
             this.SuspendLayout();
             // 
-            // radioButton1
+            // enemyImg
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(111, 83);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.enemyImg.Location = new System.Drawing.Point(310, 27);
+            this.enemyImg.Name = "enemyImg";
+            this.enemyImg.Size = new System.Drawing.Size(192, 150);
+            this.enemyImg.TabIndex = 0;
+            this.enemyImg.TabStop = false;
             // 
-            // t
+            // prevButt
             // 
-            this.t.Location = new System.Drawing.Point(135, 127);
-            this.t.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.t.Multiline = true;
-            this.t.Name = "t";
-            this.t.Size = new System.Drawing.Size(327, 120);
-            this.t.TabIndex = 1;
+            this.prevButt.Location = new System.Drawing.Point(196, 82);
+            this.prevButt.Name = "prevButt";
+            this.prevButt.Size = new System.Drawing.Size(32, 23);
+            this.prevButt.TabIndex = 1;
+            this.prevButt.Text = "<";
+            this.prevButt.UseVisualStyleBackColor = true;
+            // 
+            // nextButt
+            // 
+            this.nextButt.Location = new System.Drawing.Point(254, 82);
+            this.nextButt.Name = "nextButt";
+            this.nextButt.Size = new System.Drawing.Size(32, 23);
+            this.nextButt.TabIndex = 2;
+            this.nextButt.Text = ">";
+            this.nextButt.UseVisualStyleBackColor = true
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 314);
-            this.Controls.Add(this.t);
-            this.Controls.Add(this.radioButton1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientSize = new System.Drawing.Size(527, 314);
+            this.Controls.Add(this.nextButt);
+            this.Controls.Add(this.prevButt);
+            this.Controls.Add(this.enemyImg);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.enemyImg)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox t;
+        private System.Windows.Forms.PictureBox enemyImg;
+        private System.Windows.Forms.Button prevButt;
+        private System.Windows.Forms.Button nextButt;
     }
 }
 

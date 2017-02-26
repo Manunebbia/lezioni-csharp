@@ -1,0 +1,5 @@
+Type,Name,MaxHp,Damage,Special
+Monster,Squirtle,100,10,0
+Fire,Eevee,115,15,10
+Monster,Abra,120,10,12
+Fire,Charmender,120,13,20

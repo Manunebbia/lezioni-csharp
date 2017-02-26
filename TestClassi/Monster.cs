@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TestClassi
@@ -42,6 +43,8 @@ namespace TestClassi
                 _healFactor = value;
             }
         }
+
+        public Image image { get; set; }
 
         public string status
         {

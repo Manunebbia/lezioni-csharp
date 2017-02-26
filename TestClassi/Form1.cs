@@ -12,27 +12,28 @@ namespace TestClassi
 {
     public partial class Form1 : Form
     {
-        private List<Monster> monsters = new List<Monster>();
+        private List<Monster> monsters;
 
         public Form1()
         {
             InitializeComponent();
             monsters = Deserializer.deserializeMonsters();
-            foreach (Monster m in monsters)
+
+            /* foreach (Monster m in monsters)
             {
                 Console.WriteLine(m.GetType());
-                if (m.GetType() == typeof(Fire_Monster))
+
+                if (m is Fire_Monster) //if (m.GetType() == typeof(Fire_Monster))
                 {
                     Fire_Monster f = m as Fire_Monster;
                     Console.WriteLine(f.fireDamage);
                 }
-                //Console.WriteLine(m.fire);
-            }
+            } */
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            addMonster(new Monster("tizio", 200, 100));
+            renderMonster(curMonsterIndex);
             //Console.WriteLine(monsters[0].describe());
         }
         private Monster addMonster(Monster m)
@@ -41,5 +42,25 @@ namespace TestClassi
             return m;
         }
 
+        private int curMonsterIndex = 0;
+        private void prevButt_Click(object sender, EventArgs e)
+        {
+            if (curMonsterIndex == 0) return;
+            curMonsterIndex--;
+            renderMonster(curMonsterIndex);
+        }
+
+        private void nextButt_Click(object sender, EventArgs e)
+        {
+            if (curMonsterIndex == monsters.Count - 1) return;
+            curMonsterIndex++;
+            renderMonster(curMonsterIndex);
+        }
+
+        private void renderMonster(int monsterIndex)
+        {
+            enemyImg.Image = monsters[monsterIndex].image;
+        }
+
     }
-}
+    }
