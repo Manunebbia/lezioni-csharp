@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.enemyImg = new System.Windows.Forms.PictureBox();
-            this.prevButt = new System.Windows.Forms.Button();
             this.nextButt = new System.Windows.Forms.Button();
+            this.prevButt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.enemyImg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,15 +42,6 @@
             this.enemyImg.TabIndex = 0;
             this.enemyImg.TabStop = false;
             // 
-            // prevButt
-            // 
-            this.prevButt.Location = new System.Drawing.Point(196, 82);
-            this.prevButt.Name = "prevButt";
-            this.prevButt.Size = new System.Drawing.Size(32, 23);
-            this.prevButt.TabIndex = 1;
-            this.prevButt.Text = "<";
-            this.prevButt.UseVisualStyleBackColor = true;
-            // 
             // nextButt
             // 
             this.nextButt.Location = new System.Drawing.Point(254, 82);
@@ -58,15 +49,26 @@
             this.nextButt.Size = new System.Drawing.Size(32, 23);
             this.nextButt.TabIndex = 2;
             this.nextButt.Text = ">";
-            this.nextButt.UseVisualStyleBackColor = true
+            this.nextButt.UseVisualStyleBackColor = true;
+            this.nextButt.Click += new System.EventHandler(this.nextButt_Click);
+            // 
+            // prevButt
+            // 
+            this.prevButt.Location = new System.Drawing.Point(201, 82);
+            this.prevButt.Name = "prevButt";
+            this.prevButt.Size = new System.Drawing.Size(32, 23);
+            this.prevButt.TabIndex = 3;
+            this.prevButt.Text = "<";
+            this.prevButt.UseVisualStyleBackColor = true;
+            this.prevButt.Click += new System.EventHandler(this.prevButt_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 314);
-            this.Controls.Add(this.nextButt);
             this.Controls.Add(this.prevButt);
+            this.Controls.Add(this.nextButt);
             this.Controls.Add(this.enemyImg);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";

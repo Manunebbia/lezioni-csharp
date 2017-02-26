@@ -43,6 +43,12 @@ namespace TestClassi
         }
 
         private int curMonsterIndex = 0;
+
+        private void renderMonster(int monsterIndex)
+        {
+            enemyImg.Image = monsters[monsterIndex].image;
+        }
+
         private void prevButt_Click(object sender, EventArgs e)
         {
             if (curMonsterIndex == 0) return;
@@ -56,11 +62,5 @@ namespace TestClassi
             curMonsterIndex++;
             renderMonster(curMonsterIndex);
         }
-
-        private void renderMonster(int monsterIndex)
-        {
-            enemyImg.Image = monsters[monsterIndex].image;
-        }
-
     }
     }

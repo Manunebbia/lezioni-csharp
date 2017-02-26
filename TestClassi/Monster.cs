@@ -58,6 +58,8 @@ public Monster(string name, int maxHp, int damage, int healFactor = 0)
         {
             _name = name;
 
+            image = Image.FromFile(Assets.getImagePath(name));
+
             if (maxHp < 1) maxHp = 1;
             _maxHp = maxHp;
 
